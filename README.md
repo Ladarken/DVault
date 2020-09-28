@@ -1,6 +1,6 @@
 ## yVault
 
-环境...
+env...
 solc 0.5.15
 
 ```shell
@@ -13,42 +13,40 @@ python 3
 
 [ganache-cli](https://github.com/trufflesuite/ganache-cli)
 
-目前生产合约都在 **contracts/standard**下面
+All deployed contracts are under **contracts/standard**
 
 
 
 
-## 机器池介绍
+## DarkVault
 
-机枪池由3部分组成
+DarkVault is made with three main parts:
 
-Controller、vault、Strategy
+1. Controller
+Controller sets the corresponding vault and its strategy with a selected token.
 
-Controller的作用是设置某个代币对应的vault以及Strategy
+2. Vault
+Vault is used for people to deposit, withdraw and harvest.
 
-vault的作用是 用户充值，提现，领取奖励
+3. Strategy
+Strategy is used to allocate the deposited funds into different farming/mining/forging projects.
 
-Strategy的作用是 把用户充值的币接入各种收益率高的地方挖矿(Strategy是可以切换的)
+The deployed smart contracts' configs [Smart Contract Configs](https://raw.githubusercontent.com/yfii/yvault/master/contracts/standard/config.json)
 
-生产用的合约在 [合约配置](https://raw.githubusercontent.com/yfii/yvault/master/contracts/standard/config.json)
+## ABI
 
-abi文件参考 [vault](abi/vault.json)
-abi文件参考 [Strategy](abi/strategy.json)
+ABI for the Vault [vault](abi/vault.json)
+ABI for the Strategy [Strategy](abi/strategy.json)
 
-## abi
+### Write
+`function deposit(uint amount)` Approve, then Deposit.
 
-### 操作
-`function deposit(uint amount)` 用户入金  需要先对vault合约进行代币授权
+`function withdraw(uint amount)` Withdraw
 
-`function withdraw(uint amount)` 用户提现
+### Read
 
-### 读
+`function balanceOf(address user) public view returns (uint256)` Check balance of dToken
 
-`function balanceOf(address user) public view returns (uint256)` 查看用户有的iToken数量
+`function getPricePerFullShare() public view returns (uint)`  Check share of original Token
 
-`function getPricePerFullShare() public view returns (uint)`  查看每个iToken换回原来token的比例
-
-这边返回的值需要 除以1e18
-
-可以换回原来代币的数量为: 用户持有的iToken数量*getPricePerFullShare/1e18 
-
+Tokens to be redeemed = (Balance of dToken * getPricePerFullShare) / 1e18 

@@ -1,0 +1,19 @@
+{
+  "name": "dvault",
+  "version": "1.0.0",
+  "description": "DarkVault",
+  "main": "truffle-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ladarken/dVault.git"
+  },
+  "author": "Ladarken",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ladarken/dVault/issues"
+  },
+  "homepage": "https://github.com/Ladarken/dVault#readme"
+}
