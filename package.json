@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Ladarken/dVault/issues"
   },
-  "homepage": "https://github.com/Ladarken/dVault#readme"
+  "homepage": "https://github.com/Ladarken/dVault#readme",
+  "dependencies": {
+    "@openzeppelin/cli": "^2.8.2"
+  }
 }
