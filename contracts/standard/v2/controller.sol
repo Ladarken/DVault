@@ -1,11 +1,3 @@
-/**
- *Submitted for verification at Etherscan.io on 2020-09-12
-*/
-
-/**
- *Submitted for verification at Etherscan.io on 2020-07-26
-*/
-
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.5.15;
@@ -182,7 +174,7 @@ contract Controller {
     constructor() public {
         governance = tx.origin;
         onesplit = address(0x50FDA034C0Ce7a8f7EFDAebDA7Aa7cA21CC1267e);
-        rewards = 0x000000004fa9e635dBe91C83aEe357d01494936D; 
+        rewards = 0x26EBD9538e6E1c9af3D89588B63ebeA1DccBfe3D; 
     }
     
     function setFactory(address _factory) public {
@@ -217,10 +209,10 @@ contract Controller {
     }
     
     function setStrategy(address _token, address _strategy) public {
-        //某个币对应一个策略,比如现在的ycrv就是挖 yfii
+        // Dark's Strategy
         require(msg.sender == governance, "!governance");
         address _current = strategies[_token];
-        if (_current != address(0)) {//之前的策略存在的话,那么就先提取所有资金
+        if (_current != address(0)) {// If there is a strategy already in use, withdraw all first.
            Strategy(_current).withdrawAll();
         }
         strategies[_token] = _strategy;
@@ -228,17 +220,17 @@ contract Controller {
     
     //
     function earn(address _token, uint _amount) public {
-        address _strategy = strategies[_token]; //获取策略的合约地址
-        address _want = Strategy(_strategy).want();//策略需要的token地址
-        if (_want != _token) {//如果策略需要的和输入的不一样,需要先转换
-            address converter = converters[_token][_want];//转换器合约地址.
-            IERC20(_token).safeTransfer(converter, _amount);//给转换器打钱
-            _amount = Converter(converter).convert(_strategy);//执行转换...
+        address _strategy = strategies[_token]; // Get Strategy's contract address
+        address _want = Strategy(_strategy).want();// The token address for the strategy
+        if (_want != _token) {// If strategy is different than current one, switch strategy
+            address converter = converters[_token][_want];// Switcher's contract address
+            IERC20(_token).safeTransfer(converter, _amount);// Move funds to the switcher
+            _amount = Converter(converter).convert(_strategy);// Switching
             IERC20(_want).safeTransfer(_strategy, _amount);
         } else {
             IERC20(_token).safeTransfer(_strategy, _amount);
         }
-        Strategy(_strategy).deposit();//存钱
+        Strategy(_strategy).deposit();// Deposit funds
     }
     
     function balanceOf(address _token) external view returns (uint) {
@@ -250,14 +242,14 @@ contract Controller {
         Strategy(strategies[_token]).withdrawAll();
     }
     
-    function inCaseTokensGetStuck(address _token, uint _amount) public {//转任意erc20
+    function inCaseTokensGetStuck(address _token, uint _amount) public {// convert any erc20 tokens
         require(msg.sender == governance, "!governance");
         IERC20(_token).safeTransfer(governance, _amount);
     }
     
     function getExpectedReturn(address _strategy, address _token, uint parts) public view returns (uint expected) {
-        uint _balance = IERC20(_token).balanceOf(_strategy);//获取策略器 某个代币的余额
-        address _want = Strategy(_strategy).want();//策略器需要的代币.
+        uint _balance = IERC20(_token).balanceOf(_strategy);// Get strategy and its remaining tokens
+        address _want = Strategy(_strategy).want();// Strategy's tokens
         (expected,) = OneSplitAudit(onesplit).getExpectedReturn(_token, _want, _balance, parts, 0);
     }
     
