@@ -8,6 +8,13 @@
         "kind": "NonProxy",
         "bytecodeHash": "ed6008183dedcb1e5aa3ff75beb6866ca2e9a76aa56882fd9834f903853bc149"
       }
+    ],
+    "dvault/darkUSDTvault": [
+      {
+        "address": "0xaa512E9D49104830319F17f6FCfC4Fb0ee1f5602",
+        "kind": "NonProxy",
+        "bytecodeHash": "334eebc2dc0aa1877b4504c6ccfb1995d4b8f889588bc238de692b05f96740c7"
+      }
     ]
   },
   "manifestVersion": "2.2"
