@@ -249,7 +249,7 @@ interface Controller {
     function earn(address, uint) external;
 }
 
-contract iVault is ERC20, ERC20Detailed {
+contract darkETHvault is ERC20, ERC20Detailed {
     using SafeERC20 for IERC20;
     using Address for address;
     using SafeMath for uint256;
