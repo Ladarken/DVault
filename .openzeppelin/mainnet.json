@@ -1,0 +1,14 @@
+{
+  "contracts": {},
+  "solidityLibs": {},
+  "proxies": {
+    "dvault/Controller": [
+      {
+        "address": "0xff56f173b473350E1387EE327F92d7C3ec1cd676",
+        "kind": "NonProxy",
+        "bytecodeHash": "ed6008183dedcb1e5aa3ff75beb6866ca2e9a76aa56882fd9834f903853bc149"
+      }
+    ]
+  },
+  "manifestVersion": "2.2"
+}
