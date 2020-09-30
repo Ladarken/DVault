@@ -1,0 +1,18 @@
+//controller :0xb313b02235Acb925D51Be22bAf90Dc68B4Bf8Af5
+//controller: test inprod:0x5B916D02A9745C64EC6C0AFe41Ee4893Dd5a01B7
+[
+    {
+    "token": "0x55d398326f99059ff775485246999027b3197955",
+    "Strategy":  "0x92f5ff3f1b4d8aD81Ba1765a2F1af612205119c2",
+    "vault": "0x1F19D041FDCE1B70901008229d77A8B02E315618",
+    "name":"usdt",
+    "StrategyName":""
+    },
+    {
+    "token": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+    "Strategy":  "0x5d6d4d666f522723C993279D107833B22d40A193",
+    "vault": "0xeB3C085FBc1030bb127114CB1A3B9A02A24eF62d",
+    "name":"busd",
+    "StrategyName":""
+    }
+]
