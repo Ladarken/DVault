@@ -287,8 +287,8 @@ contract darkUSDTvault is ERC20, ERC20Detailed {
     address public controller;
     
     constructor (address _token,uint _earnLowerlimit) public ERC20Detailed(
-        string(abi.encodePacked("yfii ", ERC20Detailed(_token).name())),
-        string(abi.encodePacked("i", ERC20Detailed(_token).symbol())),
+        string(abi.encodePacked("DARK ", ERC20Detailed(_token).name())),
+        string(abi.encodePacked("dark", ERC20Detailed(_token).symbol())),
         ERC20Detailed(_token).decimals()
     ) {
         token = IERC20(_token);
