@@ -660,7 +660,7 @@ contract Unipool is LPTokenWrapper, IRewardDistributionRecipient {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {
             rewards[msg.sender] = 0;
-            MEFI.safeTransfer(msg.sender, reward);
+            DARK.safeTransfer(msg.sender, reward);
             emit RewardPaid(msg.sender, reward);
         }
     }
