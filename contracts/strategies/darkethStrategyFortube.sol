@@ -219,7 +219,7 @@ contract darkethStrategyFortube {
     
     constructor() public {
         governance = msg.sender;
-        controller = 0xcDCf1f9Ac816Fed665B09a00f60c885dd8848b02;
+        controller = 0xff56f173b473350E1387EE327F92d7C3ec1cd676;
         getName = string(
             abi.encodePacked("dark:Strategy:", 
                 abi.encodePacked(IERC20(want).name(),"The Force Token"
