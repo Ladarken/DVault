@@ -29,6 +29,13 @@
         "kind": "NonProxy",
         "bytecodeHash": "334eebc2dc0aa1877b4504c6ccfb1995d4b8f889588bc238de692b05f96740c7"
       }
+    ],
+    "dvault/darkTUSDvault": [
+      {
+        "address": "0x8bF187dC70376133024ee2b9Aa205910aa5bffe6",
+        "kind": "NonProxy",
+        "bytecodeHash": "334eebc2dc0aa1877b4504c6ccfb1995d4b8f889588bc238de692b05f96740c7"
+      }
     ]
   },
   "manifestVersion": "2.2"
