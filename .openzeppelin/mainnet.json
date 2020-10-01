@@ -22,6 +22,13 @@
         "kind": "NonProxy",
         "bytecodeHash": "334eebc2dc0aa1877b4504c6ccfb1995d4b8f889588bc238de692b05f96740c7"
       }
+    ],
+    "dvault/darkDAIvault": [
+      {
+        "address": "0x8a10eEf5A822879D5682A71F52bC8969eEE8D77a",
+        "kind": "NonProxy",
+        "bytecodeHash": "334eebc2dc0aa1877b4504c6ccfb1995d4b8f889588bc238de692b05f96740c7"
+      }
     ]
   },
   "manifestVersion": "2.2"
