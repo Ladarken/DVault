@@ -36,6 +36,13 @@
         "kind": "NonProxy",
         "bytecodeHash": "334eebc2dc0aa1877b4504c6ccfb1995d4b8f889588bc238de692b05f96740c7"
       }
+    ],
+    "dvault/darkyCRVvault": [
+      {
+        "address": "0xB2db4568a3a2f5CaAd850Cf0Ad0A6C3d0d82A6F0",
+        "kind": "NonProxy",
+        "bytecodeHash": "334eebc2dc0aa1877b4504c6ccfb1995d4b8f889588bc238de692b05f96740c7"
+      }
     ]
   },
   "manifestVersion": "2.2"
