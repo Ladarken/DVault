@@ -64,7 +64,7 @@ module.exports = {
       network_id: 1,
       gas: 8000000,
       from: process.env.DEPLOYER_ACCOUNT,
-      gasPrice: 120000000000
+      gasPrice: 85000000000
     },
 
     // Another network with more advanced options...
