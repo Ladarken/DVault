@@ -592,7 +592,7 @@ contract LPTokenWrapper {
 }
 
 
-contract Unipool is LPTokenWrapper, IRewardDistributionRecipient {
+contract darkUnipool is LPTokenWrapper, IRewardDistributionRecipient {
 
     IERC20 public DARK = IERC20(0x3108ccFd96816F9E663baA0E8c5951D229E8C6da);
 
