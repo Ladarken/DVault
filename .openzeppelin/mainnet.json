@@ -50,6 +50,13 @@
         "kind": "NonProxy",
         "bytecodeHash": "727441927b99b2e132c3187b78fa065bf13c91ec9bc047616694780fd39dfe36"
       }
+    ],
+    "dvault/darkethStrategyFortube": [
+      {
+        "address": "0x8dd7ed54823356c10Dae6Be334157F338896456E",
+        "kind": "NonProxy",
+        "bytecodeHash": "40d702f2dee1f2b89fc940ee57843e29121881dd1f233ac8c6b701266d1ce604"
+      }
     ]
   },
   "manifestVersion": "2.2"
