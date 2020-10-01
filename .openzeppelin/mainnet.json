@@ -15,6 +15,13 @@
         "kind": "NonProxy",
         "bytecodeHash": "334eebc2dc0aa1877b4504c6ccfb1995d4b8f889588bc238de692b05f96740c7"
       }
+    ],
+    "dvault/darkBUSDvault": [
+      {
+        "address": "0x90252D668cd7977F9e7D85ae9cA0bCC34Df8FeE5",
+        "kind": "NonProxy",
+        "bytecodeHash": "334eebc2dc0aa1877b4504c6ccfb1995d4b8f889588bc238de692b05f96740c7"
+      }
     ]
   },
   "manifestVersion": "2.2"
