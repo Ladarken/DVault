@@ -178,7 +178,7 @@ interface WETH {
     event Withdrawal(address indexed src, uint wad);
 }
 
-contract StrategyFortube {
+contract darkethStrategyFortube {
     using SafeERC20 for IERC20;
     using Address for address;
     using SafeMath for uint256;
@@ -192,8 +192,8 @@ contract StrategyFortube {
     address constant public dark = address(0x3108ccFd96816F9E663baA0E8c5951D229E8C6da);
 
 
-    address constant public fortube = address(0xdE7B3b2Fe0E7b4925107615A5b199a4EB40D9ca9);//主合约.
-    address constant public fortube_reward = address(0xF8Df2E6E46AC00Cdf3616C4E35278b7704289d82); //领取奖励的合约
+    address constant public fortube = address(0xdE7B3b2Fe0E7b4925107615A5b199a4EB40D9ca9);// main contract
+    address constant public fortube_reward = address(0xF8Df2E6E46AC00Cdf3616C4E35278b7704289d82); // reward contract
 
     
     uint public strategyfee = 100;
