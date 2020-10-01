@@ -43,6 +43,13 @@
         "kind": "NonProxy",
         "bytecodeHash": "334eebc2dc0aa1877b4504c6ccfb1995d4b8f889588bc238de692b05f96740c7"
       }
+    ],
+    "dvault/darkUnipool": [
+      {
+        "address": "0x4332b546635Ef22F71bD354c1EFd238c2602Dd8d",
+        "kind": "NonProxy",
+        "bytecodeHash": "727441927b99b2e132c3187b78fa065bf13c91ec9bc047616694780fd39dfe36"
+      }
     ]
   },
   "manifestVersion": "2.2"
