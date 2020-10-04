@@ -309,8 +309,8 @@ contract darkethStrategyFortube {
     }
 
     function doswap() internal {
-        uint256 _2token = IERC20(output).balanceOf(address(this)).mul(90).div(100); //90%
-        uint256 _2dark = IERC20(output).balanceOf(address(this)).mul(10).div(100);  //10%
+        uint256 _2token = IERC20(output).balanceOf(address(this)).mul(50).div(100); //50%
+        uint256 _2dark = IERC20(output).balanceOf(address(this)).mul(50).div(100);  //50%
         UniswapRouter(unirouter).swapExactTokensForTokens(_2token, 0, swap2TokenRouting, address(this), now.add(1800));
         UniswapRouter(unirouter).swapExactTokensForTokens(_2dark, 0, swap2DARKRouting, address(this), now.add(1800));
     }
