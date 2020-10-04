@@ -171,7 +171,7 @@ interface ForReward{
     function claimReward() external;
 }
 
-contract StrategyFortube {
+contract darkusdcStrategyFortube {
     using SafeERC20 for IERC20;
     using Address for address;
     using SafeMath for uint256;
@@ -181,11 +181,11 @@ contract StrategyFortube {
     address constant public unirouter = address(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
     address constant public weth = address(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2); // used for for <> weth <> usdc route
 
-    address constant public yfii = address(0xa1d0E215a23d7030842FC67cE582a6aFa3CCaB83);
+    address constant public dark = address(0x3108ccFd96816F9E663baA0E8c5951D229E8C6da);
 
 
-    address constant public fortube = address(0xdE7B3b2Fe0E7b4925107615A5b199a4EB40D9ca9);//主合约.
-    address constant public fortube_reward = address(0xF8Df2E6E46AC00Cdf3616C4E35278b7704289d82); //领取奖励的合约
+    address constant public fortube = address(0xdE7B3b2Fe0E7b4925107615A5b199a4EB40D9ca9);// main contract
+    address constant public fortube_reward = address(0xF8Df2E6E46AC00Cdf3616C4E35278b7704289d82); // reward contract
 
     
     uint public strategyfee = 100;
@@ -201,6 +201,7 @@ contract StrategyFortube {
     address public strategyDev;
     address public controller;
     address public burnAddress = 0xB6af2DabCEBC7d30E440714A33E5BD45CEEd103a;
+    address public darkUnipool = 0x4332b546635Ef22F71bD354c1EFd238c2602Dd8d;
 
     string public getName;
 
