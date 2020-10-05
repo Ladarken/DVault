@@ -69,6 +69,41 @@
         "kind": "NonProxy",
         "bytecodeHash": "aa43b93b2eba6da4971e7512cae9e9735df0747c34928579675c60ca9b9049fd"
       }
+    ],
+    "dvault/darkusdcStrategyFortubev1": [
+      {
+        "address": "0xc6b62aE522ab8A5891f27F35A8bF2191BE2257C8",
+        "kind": "NonProxy",
+        "bytecodeHash": "f163ab289dd7553800c7f5a9db3b81d6a0fbbe19623d7b71ebb0e95f4564b429"
+      }
+    ],
+    "dvault/darkbusdStrategyFortubev1": [
+      {
+        "address": "0x7672834E2f6E672f6C18C5221cB30F5326ee3186",
+        "kind": "NonProxy",
+        "bytecodeHash": "27882b90b841090d74beaee6e7c620a2c87df89ee46fb9fc5b34a1a9123189f5"
+      }
+    ],
+    "dvault/darkdaiStrategydeForcev1": [
+      {
+        "address": "0xf49C3a001c4fB3C1a46E4e3C50f4aF81F664F5D1",
+        "kind": "NonProxy",
+        "bytecodeHash": "a2c32483808df898919fd4cf4bbbe32847fa503ac206bfde8ecd8d4cf111fec2"
+      }
+    ],
+    "dvault/darkhbtcStrategydeFortubev1": [
+      {
+        "address": "0xe7b2C185CAd0FfC422fD8eF868c8eefF719dD433",
+        "kind": "NonProxy",
+        "bytecodeHash": "c5f5ed18095e81bdb0eee3a67a041677ac279a1abad38577469b8f7fbc431839"
+      }
+    ],
+    "dvault/darkycrvStrategydeCurvev1": [
+      {
+        "address": "0xD7e9ce75f72b4dC54f7Ca42646687Bc624f6a9c3",
+        "kind": "NonProxy",
+        "bytecodeHash": "923caf098170d4da0f281deddd64182adec75a416071395cbb9449a3c63c8ed3"
+      }
     ]
   },
   "manifestVersion": "2.2"
