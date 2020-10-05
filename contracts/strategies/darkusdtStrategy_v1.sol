@@ -171,7 +171,7 @@ interface ForReward{
     function claimReward() external;
 }
 
-contract darkusdtStrategyFortube {
+contract darkusdtStrategyFortubev1 {
     using SafeERC20 for IERC20;
     using Address for address;
     using SafeMath for uint256;

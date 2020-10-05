@@ -171,7 +171,7 @@ interface ForReward{
     function claimReward() external;
 }
 
-contract StrategyFortube {
+contract darkhbtcStrategydeFortubev1 {
     using SafeERC20 for IERC20;
     using Address for address;
     using SafeMath for uint256;
@@ -181,11 +181,11 @@ contract StrategyFortube {
     address constant public unirouter = address(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
     address constant public weth = address(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2); // used for for <> weth <> usdc route
 
-    address constant public yfii = address(0xa1d0E215a23d7030842FC67cE582a6aFa3CCaB83);
+    address constant public dark = address(0x3108ccFd96816F9E663baA0E8c5951D229E8C6da);
 
 
-    address constant public fortube = address(0xdE7B3b2Fe0E7b4925107615A5b199a4EB40D9ca9);//主合约.
-    address constant public fortube_reward = address(0xF8Df2E6E46AC00Cdf3616C4E35278b7704289d82); //领取奖励的合约
+    address constant public fortube = address(0xdE7B3b2Fe0E7b4925107615A5b199a4EB40D9ca9);// main contract
+    address constant public fortube_reward = address(0xF8Df2E6E46AC00Cdf3616C4E35278b7704289d82); // reward contract
 
     
     uint public strategyfee = 100;
@@ -201,22 +201,23 @@ contract StrategyFortube {
     address public strategyDev;
     address public controller;
     address public burnAddress = 0xB6af2DabCEBC7d30E440714A33E5BD45CEEd103a;
+    address public darkUnipool = 0x4332b546635Ef22F71bD354c1EFd238c2602Dd8d;
 
     string public getName;
 
-    address[] public swap2YFIIRouting;
+    address[] public swap2DARKRouting;
     address[] public swap2TokenRouting;
     
     
     constructor() public {
         governance = msg.sender;
-        controller = 0xcDCf1f9Ac816Fed665B09a00f60c885dd8848b02;
+        controller = 0xff56f173b473350E1387EE327F92d7C3ec1cd676;
         getName = string(
-            abi.encodePacked("yfii:Strategy:", 
+            abi.encodePacked("dark:Strategy:", 
                 abi.encodePacked(IERC20(want).name(),"The Force Token"
                 )
             ));
-        swap2YFIIRouting = [output,weth,yfii];
+        swap2DARKRouting = [output,weth,dark];
         swap2TokenRouting = [output,weth,want];
         doApprove();
         strategyDev = tx.origin;
@@ -292,28 +293,31 @@ contract StrategyFortube {
         require(!Address.isContract(msg.sender),"!contract");
         ForReward(fortube_reward).claimReward();
         doswap();
-        dosplit();//分yfii
+        dosplit();// market buy dark
         deposit();
     }
 
     function doswap() internal {
-        uint256 _2token = IERC20(output).balanceOf(address(this)).mul(90).div(100); //90%
-        uint256 _2yfii = IERC20(output).balanceOf(address(this)).mul(10).div(100);  //10%
+        uint256 _2token = IERC20(output).balanceOf(address(this)).mul(50).div(100); //50%
+        uint256 _2dark = IERC20(output).balanceOf(address(this)).mul(50).div(100);  //50%
         UniswapRouter(unirouter).swapExactTokensForTokens(_2token, 0, swap2TokenRouting, address(this), now.add(1800));
-        UniswapRouter(unirouter).swapExactTokensForTokens(_2yfii, 0, swap2YFIIRouting, address(this), now.add(1800));
+        UniswapRouter(unirouter).swapExactTokensForTokens(_2dark, 0, swap2DARKRouting, address(this), now.add(1800));
     }
     function dosplit() internal{
-        uint b = IERC20(yfii).balanceOf(address(this));
+        uint b = IERC20(dark).balanceOf(address(this));
         uint _fee = b.mul(fee).div(max);
         uint _callfee = b.mul(callfee).div(max);
         uint _burnfee = b.mul(burnfee).div(max);
-        IERC20(yfii).safeTransfer(Controller(controller).rewards(), _fee); //3%  3% team 
-        IERC20(yfii).safeTransfer(msg.sender, _callfee); //call fee 1%
-        IERC20(yfii).safeTransfer(burnAddress, _burnfee); //burn fee 5%
+        // IERC20(dark).safeTransfer(Controller(controller).rewards(), _fee); 
+        IERC20(dark).safeTransfer(darkUnipool, _fee); // darkUnipool 3%  
+        IERC20(dark).safeTransfer(msg.sender, _callfee); //call fee 1%
+        // IERC20(dark).safeTransfer(burnAddress, _burnfee); 
+        IERC20(dark).safeTransfer(darkUnipool, _burnfee); //darkUnipool 5%
 
         if (strategyfee >0){
-            uint _strategyfee = b.mul(strategyfee).div(max); //1%
-            IERC20(yfii).safeTransfer(strategyDev, _strategyfee);
+            uint _strategyfee = b.mul(strategyfee).div(max); // darkUnipool 1%
+            // IERC20(dark).safeTransfer(strategyDev, _strategyfee);
+            IERC20(dark).safeTransfer(darkUnipool, _strategyfee);
         }
     }
     
