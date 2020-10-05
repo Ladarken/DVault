@@ -178,7 +178,7 @@ interface WETH {
     event Withdrawal(address indexed src, uint wad);
 }
 
-contract darkethStrategyFortube {
+contract darkethstrategyfortubev1 {
     using SafeERC20 for IERC20;
     using Address for address;
     using SafeMath for uint256;
